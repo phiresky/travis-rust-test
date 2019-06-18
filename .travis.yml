@@ -9,7 +9,7 @@ script:
 - cargo test --verbose --all
 before_deploy:
 - cargo build --release
-- 7z -h
+- 7z a test.7z target/release
 deploy:
   on:
     tags: true
@@ -18,4 +18,5 @@ deploy:
   api_key:
     secure: EXMrvXCdd+dEtvm2vlJxavSiYZ3mXuMQqBz+nHpH72qngWwV43oUAVaUhtX0BLANO/+xXh2/LkDtoWl3vnq97ifig5NFk3E/m1RcGuCbp/IfjojmAHLED47Xt5u0wWFGV2BXkJUgvl24zGWSX+cJjXQ2IMVZ/0S0GPZsbpki6fBR6k+gb30pKd8mm6pFjFCSnYr6Gq6xQTgvLCX+lLS3+S7VqovkrVNzmogJ+ZZ/uU6cSnHsHn9ILio8IAAlkf9Kl7qu8dhwf9baNBwNF9bA8SAi6VQKi+FLUvvvPTUEkrD1lL3hHuo/ZLwDUhFZJYXpfylt0cSJOxyWkdikjyrsMOVdzcjlxS5EnDGIumkZxjrmR7gUvIfvhwta77WiK/kSXn/3WiuVGiDbD1kMzozycabIDyfxVicu3i1EUAa55XEHheiMKtVvoBV3sxtmKqoJAY5dRT2TqyySgeN1U9S4P+kZjDVyntOFoeI53x0aqQS8H3eD2y/bywLSyJaOoWp4U9P4mVuFPFiioRHTr0dyOiYWNNvFptrzyGdU54nOOXJIUHiYdWpAlBJUyFcJVXiRNmLCVKT1/V4ODbf5xfukCTJb78lZR+an2N5CrsPCt8lBWFtfc7CkeDSxiHoAcK4PaGoKgPPaCu/2d5aPaOv4in+ZPgc0VmVxCQvA2jQomWs=
   file_glob: true
-  file: target/release/rese
+  file: test.7z
+  skip_cleanup: true
