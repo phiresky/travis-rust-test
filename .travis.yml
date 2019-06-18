@@ -1,0 +1,18 @@
+language: rust
+
+matrix:
+  include:
+    - os: windows
+      rust: stable
+      fast_finish: true
+script:
+  - cargo build --verbose --all
+  - cargo test --verbose --all
+before_deploy:
+  - cargo build --release
+deploy:
+  on:
+    tags: true
+  provider: releases
+  file_glob: true
+  file: target/release/rese
